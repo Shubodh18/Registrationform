@@ -80,6 +80,89 @@ h1 {
     box-shadow: 0 0 5px rgba(220, 53, 69, 0.3);
 }
 
+/* Phone Number with Country Code */
+.phone-wrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.country-code {
+    background-color: #f8f9fa;
+    padding: 12px 12px;
+    font-weight: 600;
+    color: #667eea;
+    border-right: 2px solid #e0e0e0;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.phone-wrapper input {
+    flex: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.phone-wrapper input:focus {
+    outline: none;
+}
+
+.phone-wrapper:has(input:focus) {
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.phone-wrapper input:valid:not(:placeholder-shown) {
+    color: #28a745;
+}
+
+.phone-wrapper input:invalid:not(:placeholder-shown) {
+    color: #dc3545;
+}
+
+/* Email Validation Feedback */
+.email-feedback {
+    font-size: 13px;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.form-group.email-valid .email-feedback {
+    color: #28a745;
+    background-color: #f0f9f6;
+}
+
+.form-group.email-error .email-feedback {
+    color: #dc3545;
+    background-color: #fef5f5;
+}
+
+/* Address Validation Feedback */
+.address-feedback {
+    font-size: 13px;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.form-group.address-valid .address-feedback {
+    color: #28a745;
+    background-color: #f0f9f6;
+}
+
+.form-group.address-error .address-feedback {
+    color: #dc3545;
+    background-color: #fef5f5;
+}
+
 .form-group.checkbox {
     flex-direction: row;
     align-items: center;
