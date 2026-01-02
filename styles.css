@@ -66,9 +66,9 @@ h1 {
 }
 
 /* Validation Styling */
-.form-group input:valid,
-.form-group select:valid,
-.form-group textarea:valid {
+.form-group input:valid:not(:placeholder-shown),
+.form-group select:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
     border-color: #28a745;
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
 }
