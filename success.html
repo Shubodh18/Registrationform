@@ -15,11 +15,88 @@
             <p>Your account has been created successfully.</p>
             <p>Welcome to our community!</p>
             
+            <div class="submitted-data">
+                <h2>Your Registration Information</h2>
+                <div class="data-grid" id="dataGrid">
+                    <!-- Data will be populated by JavaScript -->
+                </div>
+            </div>
+            
             <div class="success-actions">
                 <a href="index.html" class="btn-home">Register Another</a>
-                <!--<a href="#" class="btn-login">Go to Login</a>-->
             </div>
         </div>
     </div>
+
+    <script>
+        // Parse URL parameters and display submitted data
+        const params = new URLSearchParams(window.location.search);
+        const dataGrid = document.getElementById('dataGrid');
+        
+        const fieldLabels = {
+            firstname: 'First Name',
+            lastname: 'Last Name',
+            email: 'Email Address',
+            phone: 'Phone Number',
+            password: 'Password',
+            address: 'Address',
+            country: 'Country'
+        };
+
+        const countryNames = {
+            usa: 'United States',
+            india: 'India',
+            uk: 'United Kingdom',
+            canada: 'Canada',
+            australia: 'Australia'
+        };
+
+        const countryCodes = {
+            usa: '+1',
+            india: '+91',
+            uk: '+44',
+            canada: '+1',
+            australia: '+61'
+        };
+
+        // Display each submitted field
+        for (const [key, label] of Object.entries(fieldLabels)) {
+            const value = params.get(key);
+            
+            if (value && value.trim() !== '') {
+                let displayValue = value;
+                
+                // Capitalize first and last name
+                if (key === 'firstname' || key === 'lastname') {
+                    displayValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+                }
+                
+                // Format phone number with country code
+                if (key === 'phone') {
+                    const country = params.get('country');
+                    const countryCode = countryCodes[country] || '+1';
+                    displayValue = `${countryCode} ${value}`;
+                }
+                
+                // Format country name
+                if (key === 'country') {
+                    displayValue = countryNames[value] || value;
+                }
+                
+                // Mask password
+                if (key === 'password') {
+                    displayValue = '*'.repeat(value.length);
+                }
+                
+                const dataItem = document.createElement('div');
+                dataItem.className = 'data-item';
+                dataItem.innerHTML = `
+                    <span class="data-label">${label}:</span>
+                    <span class="data-value">${displayValue}</span>
+                `;
+                dataGrid.appendChild(dataItem);
+            }
+        }
+    </script>
 </body>
 </html>

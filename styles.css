@@ -97,6 +97,7 @@ h1 {
     color: #667eea;
     border-right: 2px solid #e0e0e0;
     white-space: nowrap;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -440,6 +441,52 @@ button {
     font-size: 16px;
     margin-bottom: 15px;
     line-height: 1.6;
+}
+
+/* Submitted Data Display */
+.submitted-data {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.submitted-data h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.data-item {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+.data-label {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-value {
+    color: #333;
+    font-size: 15px;
+    word-break: break-word;
 }
 
 .success-actions {
